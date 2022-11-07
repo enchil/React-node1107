@@ -21,10 +21,10 @@ function AbList() {
   }
 
   useEffect(() => {
-    console.log(2);
+    //console.log(2);
     getList();
   }, []);
-  console.log(1);
+  //console.log(1);
   return (
     <>
     <div className='container'>

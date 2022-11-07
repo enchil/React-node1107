@@ -1,6 +1,12 @@
 import React from "react"
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 function Pagination({page, totalPages}) {
+    const location = useLocation()
+
+    
+    const usp = new URLSearchParams(location.search)
+    page = usp.get('page')
+    console.log(page)
 
     return (<>
     <nav aria-label="Page navigation example">
