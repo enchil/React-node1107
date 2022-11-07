@@ -2,7 +2,8 @@
 import {useEffect, useState} from 'react';
 import {AB_LIST} from './../my-config'; 
 import axios from 'axios'
-import ListTable from './../components/ListTable';
+import ListTable from '../components/ListTable';
+import Pagination from '../components/Pagination';
 
 function AbList() {
   const [listData, setListData] = useState({
@@ -27,6 +28,11 @@ function AbList() {
   return (
     <>
     <div className='container'>
+    <div className='row'>
+      <div className='col'>
+        <Pagination page={3} totalPages={20}/>
+      </div>
+    </div>
     <ListTable rows={listData.rows}/>
     </div>
     
