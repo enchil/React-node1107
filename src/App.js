@@ -11,7 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <AbList /> }> </Route>
-          <Route path="/tmp" element={ <Tmp /> }> </Route>
+          <Route path="/tmp/:sid" element={ <Tmp /> }> </Route>
+          <Route path="/tmp/" element={ <Tmp /> }> </Route>
         </Routes>
       </BrowserRouter>
       </>
