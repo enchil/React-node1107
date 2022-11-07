@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom'
 function Pagination({page, totalPages}) {
 
     return (<>
@@ -11,8 +12,12 @@ function Pagination({page, totalPages}) {
         const p = page -5+i;
         if(p<1 ||p>totalPages) return null;
         if(p===page) classNames.push('active')
+
+        const link = `?page=${p}`
         return (
-            <li className={classNames}><a className="page-link" href="#/">{p}</a></li>
+            <li key={i} className={classNames.join(' ')}>
+            <Link className="page-link" to={link}>{p}</Link>
+            </li>
         )
     })}
     <li className="page-item"><a className="page-link" href="#/">Next</a></li>

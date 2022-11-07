@@ -2,7 +2,7 @@ import dayjs from "dayjs"
 
 function ListTable({rows}) {
     console.log({rows})
-    return (<table className="table table-striped table-hover">
+    return (<table className="table table-striped table-hover table-bordered">
     <thead>
       <tr>
         <th scope="col">#</th>

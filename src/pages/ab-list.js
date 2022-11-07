@@ -30,7 +30,7 @@ function AbList() {
     <div className='container'>
     <div className='row'>
       <div className='col'>
-        <Pagination page={3} totalPages={20}/>
+        <Pagination page={listData.page} totalPages={listData.totalPages}/>
       </div>
     </div>
     <ListTable rows={listData.rows}/>
