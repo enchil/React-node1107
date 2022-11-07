@@ -1,5 +1,7 @@
 
 import {useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom'
+
 import {AB_LIST} from './../my-config'; 
 import axios from 'axios'
 import ListTable from '../components/ListTable';
@@ -14,8 +16,11 @@ function AbList() {
     rows: []
   });
 
+  const location = useLocation();
+  const usp = new URLSearchParams(location.search)
+
   async function getList(){
-    const response = await axios.get(AB_LIST)
+    const response = await axios.get(AB_LIST + `?` + usp.toString())
     console.log(response);
     setListData(response.data);
   }
@@ -23,7 +28,7 @@ function AbList() {
   useEffect(() => {
     //console.log(2);
     getList();
-  }, []);
+  }, [location]);
   //console.log(1);
   return (
     <>
