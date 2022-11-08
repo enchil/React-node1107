@@ -18,9 +18,15 @@ export default function Login() {
 
     const mySubmit = async (e)=>{
         e.preventDefault();
-        const response = await axios.post(LOGIN_API, formData);
-
-        console.log(response);
+        const { data } = await axios.post(LOGIN_API, formData);
+        console.log(data);
+        if(data.success){
+            localStorage.setItem('auth', JSON.stringify(data.auth));
+            alert('登入成功');
+        }else{
+            localStorage.removeItem('auth');//移除
+            alert('登入失敗');
+        }
     }
     
     return (

@@ -33,10 +33,10 @@ export default  function Navbar(params) {
           <Link className="nav-link" style={actives.list}  to="/list">AB-List</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" style={actives.list}  to="/tmp">TMP</Link>
+          <Link className="nav-link" style={actives.tmp}  to="/tmp">TMP</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" style={actives.list}  to="/login">Login</Link>
+          <Link className="nav-link" style={actives.login}  to="/login">Login</Link>
         </li>
         
       </ul>
