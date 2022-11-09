@@ -1,4 +1,5 @@
 import { useLocation, Link } from 'react-router-dom'
+import ToggleButton from './ToggleButton'
 
 export default  function Navbar(params) {
     const location = useLocation()
@@ -38,7 +39,12 @@ export default  function Navbar(params) {
         <li className="nav-item">
           <Link className="nav-link" style={actives.login}  to="/login">Login</Link>
         </li>
-        
+      </ul>
+
+      <ul className="navbar-nav  mb-2 mb-lg-0">
+        <li className="nav-item">
+            <ToggleButton statusIndex={0}/>
+        </li>
       </ul>
       
     </div>

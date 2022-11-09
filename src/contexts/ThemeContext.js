@@ -9,17 +9,18 @@ export const themes = {
     },
     light:{
         name:'light',
-        backgroundColor:'gray',
-        color:'white',
+        backgroundColor:'yellow',
+        color:'black',
     }
 }
 
 const ThemeContext = createContext({...themes.dark})
+//createContext({})也可以 預設值
 
 export default ThemeContext;
 
 export const ThemeContextProvider = function( {children}){
-    const [theme, setTheme] = useState(themes.dark)
+    const [theme, setTheme] = useState(themes.light)
     return(
         <ThemeContext.Provider value={{...theme, setTheme}}>
         {children}
