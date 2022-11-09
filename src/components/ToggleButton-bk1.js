@@ -1,20 +1,17 @@
-import { useState} from "react";
-//import ThemeContext, {themes} from "../contexts/ThemeContext";
+import { useState, useContext } from "react";
+import ThemeContext, {themes} from "../contexts/ThemeContext";
 
 export default function ToggleButton({statusIndex, texts, handler}){
     const [myIndex, setMyIndex] = useState(statusIndex)
-    //const {name, setTheme} = useContext(ThemeContext)
+    const {name, setTheme} = useContext(ThemeContext)
     const classNames = ['btn']
     console.log({myIndex});
 
-    const text = myIndex ===0 ? 'dark':'light'
+    //const text = myIndex ===0 ? 'dark':'light'
     classNames.push(myIndex ===0 ? 'btn-primary':'btn btn-outline-primary')
     const myClick= ()=>{
-        // setMyIndex(myIndex ===0 ? 1:0)
-        // setTheme(myIndex ===0 ? themes.light:themes.dark)
-        const nextStatusIndex = myIndex ===0 ? 1 : 0
-        setMyIndex(nextStatusIndex)
-        handler(nextStatusIndex)
+        setMyIndex(myIndex ===0 ? 1:0)
+        setTheme(myIndex ===0 ? themes.light:themes.dark)
     }
     
     return (

@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useLocation, Link } from 'react-router-dom'
 import ToggleButton from './ToggleButton'
+import ThemeContext, {themes} from "../contexts/ThemeContext";
 
 export default  function Navbar(params) {
     const location = useLocation()
+    const { name: themeName, setTheme } = useContext(ThemeContext);
+    console.log({themeName});
     const seg1 = location.pathname.split("/")[1]
 
     const actives = {
@@ -43,7 +47,13 @@ export default  function Navbar(params) {
 
       <ul className="navbar-nav  mb-2 mb-lg-0">
         <li className="nav-item">
-            <ToggleButton  texts={['dark','light']}  />
+            <ToggleButton  
+            texts={['dark','light']}  
+            statusIndex={themeName === 'dark'? 0 : 1}
+            handler = {(i)=>{
+              setTheme(i ===0? themes.dark : themes.light)
+            }}
+            />
         </li>
       </ul>
       
