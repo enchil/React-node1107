@@ -2,6 +2,7 @@ import ThemeContext from "../contexts/ThemeContext"
 import { useContext } from 'react'
 
 export default function ThemeTest(params) {
+    console.log("ThemeTest");
     const {name, backgroundColor, color} = useContext(ThemeContext)
 
     const style = {

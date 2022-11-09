@@ -6,7 +6,7 @@ export default AuthContext;
 
 export const AuthContextProvider = function({children}){
     let initAuth={
-        authoried: false, //有沒有登入
+        authorised: false, //有沒有登入
         sid:0,
         account: '',
         token: '',
@@ -17,7 +17,7 @@ const str = localStorage.getItem('auth')
 if(str){
     const localAuth = JSON.parse(str)
     if(localAuth && localAuth.token){
-        initAuth = {...localAuth, authoried:true}
+        initAuth = {...localAuth, authorised:true}
     }
 }
 const [myAuth, setMyAuth] = useState(initAuth);

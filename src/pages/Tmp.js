@@ -5,6 +5,7 @@ import ThemeTest from '../components/ThemeTest'
 
 export default function Tmp() {
   const {sid} = useParams()
+  console.log('tmp');
 
   return (
     
