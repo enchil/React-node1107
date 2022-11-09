@@ -43,7 +43,7 @@ export default  function Navbar(params) {
 
       <ul className="navbar-nav  mb-2 mb-lg-0">
         <li className="nav-item">
-            <ToggleButton statusIndex={0}/>
+            <ToggleButton  texts={['dark','light']}  />
         </li>
       </ul>
       
