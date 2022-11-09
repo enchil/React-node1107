@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import { LOGIN_API } from "../my-config"
+import AuthContext from "../contexts/AuthContext"
 
 export default function Login() {
+    const { setMyAuth } = useContext(AuthContext)
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         account: "",
         password: "",
@@ -23,6 +27,8 @@ export default function Login() {
         if(data.success){
             localStorage.setItem('auth', JSON.stringify(data.auth));
             alert('登入成功');
+            setMyAuth({...data.auth, authorised:true})
+            navigate('/')
         }else{
             localStorage.removeItem('auth');//移除
             alert('登入失敗');

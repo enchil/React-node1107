@@ -7,7 +7,7 @@ import AuthContext from "../contexts/AuthContext";
 export default function Navbar() {
   const location = useLocation();
   const { name: themeName, setTheme } = useContext(ThemeContext);
-  const { myAuth } = useContext(AuthContext);
+  const { myAuth, logout } = useContext(AuthContext);
   console.log({ themeName });
   const seg1 = location.pathname.split("/")[1];
 
@@ -47,6 +47,11 @@ export default function Navbar() {
                   tmp
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" style={actives.login} to="/login">
+                  Login
+                </Link>
+              </li>
             </ul>
             <ul className="navbar-nav mb-2 mb-lg-0">
               {myAuth.authorised ? (
@@ -57,7 +62,10 @@ export default function Navbar() {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/#">
+                    <a className="nav-link" href="/#" onClick={(e)=>{
+                      e.preventDefault();
+                      logout()
+                    }}>
                       登出
                     </a>
                   </li>
