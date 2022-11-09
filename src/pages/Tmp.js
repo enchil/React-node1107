@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
+import ThemeTest from '../components/ThemeTest'
 
 
 export default function Tmp() {
@@ -17,6 +18,9 @@ export default function Tmp() {
     </div>
     <div>
     <Link to="/tmp/3">3</Link>
+    </div>
+    <div>
+      <ThemeTest />
     </div>
     </div>
   )

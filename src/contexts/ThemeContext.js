@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { useState } from "react";
 //ThemeContext and ThemeContextProvider 可以合併為一個檔案
 
 export const themes = {
