@@ -43,6 +43,11 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" style={actives['list-auth']} to="/list-auth">
+                  AB-list-Auth
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" style={actives.tmp} to="/tmp">
                   tmp
                 </Link>
