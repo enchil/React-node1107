@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { useLocation, Link } from 'react-router-dom'
 import ToggleButton from './ToggleButton'
 import ThemeContext, {themes} from "../contexts/ThemeContext";
+import AuthContext from "../contexts/AuthContext";
 
 export default  function Navbar(params) {
     const location = useLocation()
     const { name: themeName, setTheme } = useContext(ThemeContext);
+    const { myAuth } = useContext(AuthContext);
     console.log({themeName});
     const seg1 = location.pathname.split("/")[1]
 
@@ -46,6 +48,8 @@ export default  function Navbar(params) {
       </ul>
 
       <ul className="navbar-nav  mb-2 mb-lg-0">
+        <li className="nav-item">{myAuth.account}
+        </li>
         <li className="nav-item">
             <ToggleButton  
             texts={['dark','light']}  
