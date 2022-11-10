@@ -21,16 +21,35 @@ export default function Canvas1() {
     setCart(newCart)
   };
 
-  useEffect(() => {
+  const getImageFromPath = (path)=>{
+    return new Promise((resolve, reject)=>{
+        const img = new Image();
+        img.onload = ()=>{
+            resolve(img)
+        }
+        img.src = path
+    })  
+  }
+
+
+  const renderBG = async()=>{
     const ctx = cRef.current.getContext("2d");
+    const img = await getImageFromPath("/imgs/dish.jpeg")
+    ctx.drawImage(img, 0, 0);
+  }
 
-    const img = new Image();
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0);
-    };
-    img.src = "/imgs/dish.jpeg";
-  }, []);
+  const renderCart = async()=>{
 
+  }
+
+  useEffect(() => {
+    (async()=>{
+        await renderBG()
+        await renderCart()
+    })()
+},[])
+
+    
   return (
     <div className="container">
       <div className="row">
