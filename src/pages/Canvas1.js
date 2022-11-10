@@ -7,49 +7,55 @@ export default function Canvas1() {
 
   const cartAdd = (pid) => {
     let p = productData.find((el) => el.id === pid);
-    if(p){
-        p = {...p};
-        p.tid = Date.now();
-        const CurrentCart = [...cart, p];//=push
-        setCart(CurrentCart);
-        console.log(CurrentCart);
+    if (p) {
+      p = { ...p, tid: Date.now() };
+      const CurrentCart = [...cart, p];
+      setCart(CurrentCart);
+      console.log(CurrentCart);
     }
-    
   };
   const cartRemove = (tid) => {
-    const newCart = cart.filter(el=>el.tid!==tid)
-    setCart(newCart)
+    const newCart = cart.filter((el) => el.tid !== tid);
+    setCart(newCart);
   };
 
   const getImageFromPath = (path)=>{
     return new Promise((resolve, reject)=>{
         const img = new Image();
-        img.onload = ()=>{
-            resolve(img)
-        }
-        img.src = path
-    })  
-  }
-
+        img.onload = () => {
+          resolve(img);
+        };
+        img.src = path;
+    });
+  };
 
   const renderBG = async()=>{
     const ctx = cRef.current.getContext("2d");
-    const img = await getImageFromPath("/imgs/dish.jpeg")
+    ctx.clearRect(0,0, cRef.current.width, cRef.current.height);
+
+    const img = await getImageFromPath("/imgs/dish.jpeg");
     ctx.drawImage(img, 0, 0);
-  }
+  };
+  const renderCart = async ()=>{
+    const ctx = cRef.current.getContext("2d");
 
-  const renderCart = async()=>{
+    let x=0, y=0;
+    for(let item of cart){
+        const img = await getImageFromPath("/imgs/" + item.img);
 
-  }
+        ctx.drawImage(img, x, y);
+        x += 100;
+        y += 100;
+    }
+  };
 
   useEffect(() => {
-    (async()=>{
-        await renderBG()
-        await renderCart()
-    })()
-},[])
+    (async ()=>{
+        await renderBG();
+        await renderCart();
+    })();
+  }, [cart]);
 
-    
   return (
     <div className="container">
       <div className="row">
