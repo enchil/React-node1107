@@ -6,6 +6,7 @@ import AbListAuth from './pages/ab-list-auth';
 import Tmp from './pages/Tmp';
 import Login from './pages/Login';
 import MyContextProviders from './contexts/MyContextProviders';
+import Canvas1 from './pages/Canvas1';
 
 
 function App() {
@@ -25,7 +26,10 @@ function App() {
           <Route path="/tmp/" element={ <Tmp /> }> </Route>
 
           <Route path="/login" element={ <Login /> }> </Route>
+
+          <Route path="/canvas1" element={ <Canvas1 /> }> </Route>
         </Routes>
+        
         </MyContextProviders>
       </BrowserRouter>
       </>
